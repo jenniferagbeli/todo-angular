@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngxs/store'; // Import the Store service from NGXS for state management
-import { Observable } from 'rxjs'; // Import Observable to handle asynchronous data streams
-import { AddTodo, ToggleTodo, RemoveTodo } from '../store/actions/todo.actions'; // Import action classes for dispatching actions
-import { TodoState } from '../store/states/todo.state'; // Import the state class where selectors and state logic are defined
-import { Todo } from '../store/models/todo.model'; // Import the Todo interface which defines the structure of a todo item
+import { Store } from '@ngxs/store'; 
+import { Observable } from 'rxjs'; 
+import { AddTodo, ToggleTodo, RemoveTodo } from '../store/actions/todo.actions'; 
+import { TodoState } from '../store/states/todo.state'; 
+import { Todo } from '../store/models/todo.model'; 
 
 //TodoComponent uses Store to dispatch actions and Selectors to get the state.
 
 @Component({
-  selector: 'app-todo', // Define the component selector used in templates to instantiate this component
-  templateUrl: './todos.component.html', // Link to the component's HTML template file
-  styleUrls: ['./todos.component.scss'] // Link to the component's SCSS file for styling
+  selector: 'app-todo', 
+  templateUrl: './todos.component.html', 
+  styleUrls: ['./todos.component.scss'] 
 })
 export class TodosComponent {
   todos$: Observable<Todo[]>;  // Declare an observable to hold the todo list, which will be populated by the state
