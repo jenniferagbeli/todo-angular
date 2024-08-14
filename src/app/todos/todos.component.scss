@@ -17,12 +17,19 @@
   
   .add-todo {
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 1rem;
   }
   
   .todo-input {
-    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .reminder-input {
     padding: 0.5rem;
     border: 1px solid #ced4da;
     border-radius: 4px;
@@ -73,6 +80,12 @@
   .completed {
     text-decoration: line-through;
     color: #6c757d;
+  }
+  
+  .created-at, .reminder-at {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-left: 1rem;
   }
   
   .remove-button {

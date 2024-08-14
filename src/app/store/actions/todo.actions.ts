@@ -1,6 +1,6 @@
 export class AddTodo {
     static readonly type = '[Todo] Add';
-    constructor(public payload: string) {}
+    constructor(public payload: { title: string; reminderAt?: Date }) {}
   }
   
   export class ToggleTodo {
@@ -11,4 +11,9 @@ export class AddTodo {
   export class RemoveTodo {
     static readonly type = '[Todo] Remove';
     constructor(public payload: number) {}
+  }
+
+  export class SetReminder {
+    static readonly type = '[Todo] Set Reminder';
+    constructor(public payload: { id: number, reminderAt: Date }) {}
   }

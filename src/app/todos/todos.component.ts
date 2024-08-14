@@ -17,6 +17,7 @@ export class TodosComponent {
 
   newTodoTitle: string = ''; // Initialize an empty string to hold the new todo title entered by the user
   currentIndex: number = 0;  // Initialize the current index to keep track of the selected todo item
+  reminderDate: string = '';
 
   constructor(private store: Store) { 
     // In the constructor, inject the NGXS store service
@@ -27,10 +28,15 @@ export class TodosComponent {
   addTodo() {
     if (this.newTodoTitle.trim()) {
       // Check if the new todo title is not just whitespace
-      this.store.dispatch(new AddTodo(this.newTodoTitle));
+      const reminderDate = this.reminderDate ? new Date(this.reminderDate) : undefined;
+      this.store.dispatch(new AddTodo({
+        title: this.newTodoTitle,
+        reminderAt: reminderDate
+      }));
       // Dispatch the AddTodo action with the new todo title to update the state
       this.newTodoTitle = ''; 
       // Clear the input field after the todo is added
+      this.reminderDate = '';  // Clear input after adding
     }
   }
 

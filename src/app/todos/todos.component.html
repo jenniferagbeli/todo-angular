@@ -9,6 +9,12 @@
         placeholder="Add a new task"
         class="todo-input"
       />
+      <input
+      type="datetime-local"
+      [(ngModel)]="reminderDate"
+      class="reminder-input"
+      placeholder="Set a reminder (optional)"
+    />
       <button (click)="addTodo()" class="add-button">Add</button>
     </div>
   
@@ -21,8 +27,10 @@
           class="todo-checkbox"
         />
         <span [ngClass]="{'completed': todo.completed}" class="todo-text">{{ todo.title }}</span>
-        <button (click)="removeTodo(todo.id)" class="remove-button">✕</button>
-      </li>
+      <span class="created-at">{{ todo.createdAt | date:'short' }}</span>
+      <span *ngIf="todo.reminderAt" class="reminder-at">Reminder: {{ todo.reminderAt | date:'short' }}</span>
+      <button (click)="removeTodo(todo.id)" class="remove-button">✕</button>
+    </li>
     </ul>
   </div>
   
